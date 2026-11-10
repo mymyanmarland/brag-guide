@@ -23,6 +23,7 @@ CSS = """
   --violet:#7c3aed; --amber:#92400e;
   --mm-font:"Noto Serif Myanmar", serif;
 }
+@font-face{font-family:"Noto Serif Myanmar";font-style:normal;font-weight:700;font-display:swap;src:url(assets/noto-serif-myanmar-700.woff2) format("woff2")}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
@@ -61,7 +62,7 @@ header.top{position:sticky;top:0;z-index:20;background:rgba(11,16,32,.92);
 .tabs button{border:1px solid var(--line);background:var(--bg2);color:var(--text);
   padding:10px 14px;border-radius:999px;font-weight:700;cursor:pointer;font-size:14px}
 .tabs button.on{background:var(--gold);color:#1a1200;border-color:var(--gold)}
-.panel{display:none;background:var(--card);border:1px solid var(--line);
+.panel{display:none;scroll-margin-top:96px;background:var(--card);border:1px solid var(--line);
   border-radius:18px;padding:26px;margin:14px 0 40px}
 .panel.on{display:block}
 .panel h2{margin:0 0 6px;font-size:26px}
@@ -99,12 +100,15 @@ body.mm .lang-mm.inline{display:inline}
 """
 
 JS = """
-function showTab(id){
+function showTab(id, go){
   document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('on')});
   document.querySelectorAll('.tabs button').forEach(function(b){b.classList.remove('on')});
   var el=document.getElementById(id); if(el){el.classList.add('on');}
   var btn=document.querySelector('[data-tab="'+id+'"]'); if(btn){btn.classList.add('on');}
-  if(history.replaceState){history.replaceState(null,'','#'+id);}
+  if(go){
+    if(el && el.scrollIntoView){el.scrollIntoView({behavior:'smooth', block:'start'});}
+    if(history.replaceState){history.replaceState(null,'','#'+id);}
+  }
 }
 function setLang(l){
   document.body.classList.toggle('mm', l==='mm');
@@ -126,7 +130,7 @@ function copyText(btn, text){
 document.addEventListener('DOMContentLoaded', function(){
   var hash=(location.hash||'#what').slice(1);
   if(!document.getElementById(hash)){hash='what';}
-  showTab(hash);
+  showTab(hash, false);
   var saved=null; try{saved=localStorage.getItem('brag-guide-lang');}catch(e){}
   if(saved==='mm'){setLang('mm');}
   document.querySelectorAll('[data-copy]').forEach(function(btn){
@@ -156,12 +160,12 @@ def mm_block(key_intro, bullets):
             % (MM[key_intro], lis))
 
 
-def section(sec_id, en_title, mm_title_key, en_html, mm_html):
+def section(sec_id, en_title, mm_title_key, en_html, mm_html, shared=""):
     return ('<section class="panel" id="%s">'
             '<h2><span class="lang-en">%s</span>'
             '<span class="lang-mm" lang="my">%s</span></h2>'
-            '%s%s</section>'
-            % (sec_id, en_title, MM[mm_title_key], en_html, mm_html))
+            '%s%s%s</section>'
+            % (sec_id, en_title, MM[mm_title_key], en_html, mm_html, shared))
 
 # ---------------------------------------------------------------- content
 S1_EN = """
@@ -200,6 +204,10 @@ Voiceover is off by default; <code>/brag --voice</code> adds Kokoro narration.
 <li><code>share-copy.txt</code> — the caption, ready to post</li>
 <li><code>composition/</code> — the Hyperframes project</li>
 </ul>
+</div>
+"""
+
+S1_SHARED = """
 <h3>Example — PocketLab</h3>
 <p>This 21-second video was made from a real project (PocketLab, a phone science
 lab with 100 experiments) on a test machine: 1920&times;1080, 30 fps, 1.5 MB,
@@ -210,7 +218,6 @@ The Burmese hero line renders correctly.</p>
 <figcaption>PocketLab launch video, made with /brag. Share copy:
 &ldquo;Made PocketLab — a science lab in your phone. 100 experiments, in Burmese.&rdquo;</figcaption>
 </figure>
-</div>
 """
 
 S1_MM = mm_block("i1", [MM["w1"], MM["w2"], MM["w3"]])
@@ -340,13 +347,16 @@ S5_EN = """
 <div class="lang-en">
 <p class="lede">Two messages. One tap each — Copy All, paste into the Muse's own chat.
 Replace <code>PocketLab</code> with your app name, and add its repo link.</p>
+</div>
+"""
+
+S5_SHARED = """
 <h3>Phase 1 — Get ready</h3>
 <div class="copybox"><button class="copybtn big" data-copy="c-phase1">Copy All</button>
 <pre id="c-phase1"><code>__PHASE1__</code></pre></div>
 <h3>Phase 2 — Make my video</h3>
 <div class="copybox"><button class="copybtn big" data-copy="c-phase2">Copy All</button>
 <pre id="c-phase2"><code>__PHASE2__</code></pre></div>
-</div>
 """.replace("__PHASE1__", PHASE1_MSG).replace("__PHASE2__", PHASE2_MSG)
 
 S5_MM = mm_block("i5", [MM["q1"], MM["q2"]])
@@ -431,11 +441,11 @@ creative rules. On Opus 5.5, /brag switches to /brag-slim automatically.</p>
 S8_MM = mm_block("i8", [MM["q2"]])
 
 SECTIONS = [
-    ("what", "What is /brag?", "t1", S1_EN, S1_MM),
+    ("what", "What is /brag?", "t1", S1_EN, S1_MM, S1_SHARED),
     ("quick", "Quick start", "t2", S2_EN, S2_MM),
     ("phase1", "Phase 1: Get your Muse ready", "t3", S3_EN, S3_MM),
     ("phase2", "Phase 2: Ask for your video", "t4", S4_EN, S4_MM),
-    ("copy", "Copy-paste messages", "t5", S5_EN, S5_MM),
+    ("copy", "Copy-paste messages", "t5", S5_EN, S5_MM, S5_SHARED),
     ("fix", "Troubleshooting", "t6", S6_EN, S6_MM),
     ("limits", "What it can't do", "t7", S7_EN, S7_MM),
     ("faq", "FAQ", "t8", S8_EN, S8_MM),
@@ -444,7 +454,7 @@ SECTIONS = [
 # ---------------------------------------------------------------- assemble
 def build_html():
     tabs_html = "".join(
-        '<button data-tab="%s" onclick="showTab(\'%s\')">%s</button>'
+        '<button data-tab="%s" onclick="showTab(\'%s\', true)">%s</button>'
         % (i, i, label) for i, label in TABS)
     panels = "".join(section(*s) for s in SECTIONS)
     return """<!DOCTYPE html>
@@ -456,7 +466,7 @@ def build_html():
 <meta name="description" content="Turn the project you just built into a short launch video with /brag — one command, no video editor.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&family=Noto+Serif+Myanmar:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
 <style>%s</style>
 </head>
 <body>
@@ -464,7 +474,7 @@ def build_html():
 <div class="logo">/brag<span> Guide</span></div>
 <div class="lang-toggle" role="group" aria-label="Language">
 <button data-lang="en" class="on" onclick="setLang('en')">English</button>
-<button data-lang="mm" onclick="setLang('mm')">\u1019\u103c\u1014\u103a\u1019\u102c</button>
+<button data-lang="mm" lang="my" onclick="setLang('mm')">\u1019\u103c\u1014\u103a\u1019\u102c</button>
 </div></div></header>
 <section class="hero"><div class="wrap">
 <div class="kicker">/brag &middot; Open-source agent skill &middot; MIT</div>
@@ -472,7 +482,7 @@ def build_html():
 <p>Turn the project you just built into a short launch video — motion, music,
 share copy and all. One command, no video editor, your own AI agent does the work.</p>
 <div class="cta">
-<a class="btn btn-gold" href="#quick" onclick="showTab('quick')">Start in 3 steps</a>
+<a class="btn btn-gold" href="#quick" onclick="showTab('quick', true); return false;">Start in 3 steps</a>
 <a class="btn btn-ghost" href="https://github.com/latent-spaces/brag">Upstream repo</a>
 <a class="btn btn-ghost" href="https://github.com/mymyanmarland/brag">My fork</a>
 </div>

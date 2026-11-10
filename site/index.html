@@ -7,7 +7,7 @@
 <meta name="description" content="Turn the project you just built into a short launch video with /brag — one command, no video editor.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&family=Noto+Serif+Myanmar:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#0b1020; --bg2:#111a33; --card:#141d3a; --line:#24305a;
@@ -15,6 +15,7 @@
   --violet:#7c3aed; --amber:#92400e;
   --mm-font:"Noto Serif Myanmar", serif;
 }
+@font-face{font-family:"Noto Serif Myanmar";font-style:normal;font-weight:700;font-display:swap;src:url(assets/noto-serif-myanmar-700.woff2) format("woff2")}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
@@ -53,7 +54,7 @@ header.top{position:sticky;top:0;z-index:20;background:rgba(11,16,32,.92);
 .tabs button{border:1px solid var(--line);background:var(--bg2);color:var(--text);
   padding:10px 14px;border-radius:999px;font-weight:700;cursor:pointer;font-size:14px}
 .tabs button.on{background:var(--gold);color:#1a1200;border-color:var(--gold)}
-.panel{display:none;background:var(--card);border:1px solid var(--line);
+.panel{display:none;scroll-margin-top:96px;background:var(--card);border:1px solid var(--line);
   border-radius:18px;padding:26px;margin:14px 0 40px}
 .panel.on{display:block}
 .panel h2{margin:0 0 6px;font-size:26px}
@@ -95,7 +96,7 @@ body.mm .lang-mm.inline{display:inline}
 <div class="logo">/brag<span> Guide</span></div>
 <div class="lang-toggle" role="group" aria-label="Language">
 <button data-lang="en" class="on" onclick="setLang('en')">English</button>
-<button data-lang="mm" onclick="setLang('mm')">မြန်မာ</button>
+<button data-lang="mm" lang="my" onclick="setLang('mm')">မြန်မာ</button>
 </div></div></header>
 <section class="hero"><div class="wrap">
 <div class="kicker">/brag &middot; Open-source agent skill &middot; MIT</div>
@@ -103,7 +104,7 @@ body.mm .lang-mm.inline{display:inline}
 <p>Turn the project you just built into a short launch video — motion, music,
 share copy and all. One command, no video editor, your own AI agent does the work.</p>
 <div class="cta">
-<a class="btn btn-gold" href="#quick" onclick="showTab('quick')">Start in 3 steps</a>
+<a class="btn btn-gold" href="#quick" onclick="showTab('quick', true); return false;">Start in 3 steps</a>
 <a class="btn btn-ghost" href="https://github.com/latent-spaces/brag">Upstream repo</a>
 <a class="btn btn-ghost" href="https://github.com/mymyanmarland/brag">My fork</a>
 </div>
@@ -111,7 +112,7 @@ share copy and all. One command, no video editor, your own AI agent does the wor
 <span>0 check errors</span><span>33/33 contrast</span></div>
 </div></section>
 <main class="wrap">
-<nav class="tabs"><button data-tab="what" onclick="showTab('what')">1. What is /brag?</button><button data-tab="quick" onclick="showTab('quick')">2. Quick start</button><button data-tab="phase1" onclick="showTab('phase1')">3. Phase 1: Get ready</button><button data-tab="phase2" onclick="showTab('phase2')">4. Phase 2: Ask for video</button><button data-tab="copy" onclick="showTab('copy')">5. Copy-paste messages</button><button data-tab="fix" onclick="showTab('fix')">6. Troubleshooting</button><button data-tab="limits" onclick="showTab('limits')">7. What it can't do</button><button data-tab="faq" onclick="showTab('faq')">8. FAQ</button></nav>
+<nav class="tabs"><button data-tab="what" onclick="showTab('what', true)">1. What is /brag?</button><button data-tab="quick" onclick="showTab('quick', true)">2. Quick start</button><button data-tab="phase1" onclick="showTab('phase1', true)">3. Phase 1: Get ready</button><button data-tab="phase2" onclick="showTab('phase2', true)">4. Phase 2: Ask for video</button><button data-tab="copy" onclick="showTab('copy', true)">5. Copy-paste messages</button><button data-tab="fix" onclick="showTab('fix', true)">6. Troubleshooting</button><button data-tab="limits" onclick="showTab('limits', true)">7. What it can't do</button><button data-tab="faq" onclick="showTab('faq', true)">8. FAQ</button></nav>
 <section class="panel" id="what"><h2><span class="lang-en">What is /brag?</span><span class="lang-mm" lang="my">/brag ဆိုတာ ဘာလဲ</span></h2>
 <div class="lang-en">
 <p class="lede">/brag is an open-source agent skill that turns a project you just built
@@ -148,6 +149,8 @@ Voiceover is off by default; <code>/brag --voice</code> adds Kokoro narration.
 <li><code>share-copy.txt</code> — the caption, ready to post</li>
 <li><code>composition/</code> — the Hyperframes project</li>
 </ul>
+</div>
+<div class="lang-mm" lang="my"><p class="lede">/brag က Project ကို ဗီဒီယို ပြောင်ပေးတယ်။</p><ul><li>Music, motion, SFX ပါတယ်။ Video editor မလိုဘူး။</li><li>Agent က Project ကို ဖတ်တယ်။ Story စီစဉ်တယ်။ တကယ့် UI ကို သုံးတယ်။</li><li>ဗီဒီယို ၁၅–၂၅ seconds။</li></ul></div>
 <h3>Example — PocketLab</h3>
 <p>This 21-second video was made from a real project (PocketLab, a phone science
 lab with 100 experiments) on a test machine: 1920&times;1080, 30 fps, 1.5 MB,
@@ -158,8 +161,7 @@ The Burmese hero line renders correctly.</p>
 <figcaption>PocketLab launch video, made with /brag. Share copy:
 &ldquo;Made PocketLab — a science lab in your phone. 100 experiments, in Burmese.&rdquo;</figcaption>
 </figure>
-</div>
-<div class="lang-mm" lang="my"><p class="lede">/brag က Project ကို ဗီဒီယို ပြောင်ပေးတယ်။</p><ul><li>Music, motion, SFX ပါတယ်။ Video editor မလိုဘူး။</li><li>Agent က Project ကို ဖတ်တယ်။ Story စီစဉ်တယ်။ တကယ့် UI ကို သုံးတယ်။</li><li>ဗီဒီယို ၁၅–၂၅ seconds။</li></ul></div></section><section class="panel" id="quick"><h2><span class="lang-en">Quick start</span><span class="lang-mm" lang="my">စတင်နည်း</span></h2>
+</section><section class="panel" id="quick"><h2><span class="lang-en">Quick start</span><span class="lang-mm" lang="my">စတင်နည်း</span></h2>
 <div class="lang-en">
 <p class="lede">Three steps. Install, check, run.</p>
 <h3>Step 1 — Install /brag</h3>
@@ -251,6 +253,8 @@ when you say so, after you have seen it.</div>
 <div class="lang-en">
 <p class="lede">Two messages. One tap each — Copy All, paste into the Muse's own chat.
 Replace <code>PocketLab</code> with your app name, and add its repo link.</p>
+</div>
+<div class="lang-mm" lang="my"><p class="lede">Copy All တစ်ချက် နှိပ် အကုန် ကူးလို့ရတယ်။</p><ul><li>Install လုပ်ပါ။</li><li>စမ်းသပ်ပေးပါ။</li></ul></div>
 <h3>Phase 1 — Get ready</h3>
 <div class="copybox"><button class="copybtn big" data-copy="c-phase1">Copy All</button>
 <pre id="c-phase1"><code>Get ready to make launch videos with /brag, the open-source skill from https://github.com/latent-spaces/brag. Install it on YOUR OWN VM now, so you are ready when I give you a project. Download everything yourself from GitHub on your machine.
@@ -274,8 +278,7 @@ Make a 20-second launch video for PocketLab in your VM.
 Show me the video and frames first. Do not publish anything.
 If /tmp is small, set TMPDIR to a workspace folder before rendering.
 If the GSAP CDN fails, vendor GSAP locally.</code></pre></div>
-</div>
-<div class="lang-mm" lang="my"><p class="lede">Copy All တစ်ချက် နှိပ် အကုန် ကူးလို့ရတယ်။</p><ul><li>Install လုပ်ပါ။</li><li>စမ်းသပ်ပေးပါ။</li></ul></div></section><section class="panel" id="fix"><h2><span class="lang-en">Troubleshooting</span><span class="lang-mm" lang="my">ဖြေရှင်နည်း</span></h2>
+</section><section class="panel" id="fix"><h2><span class="lang-en">Troubleshooting</span><span class="lang-mm" lang="my">ဖြေရှင်နည်း</span></h2>
 <div class="lang-en">
 <p class="lede">Two problems came up during the verified test run. Both have fixes.</p>
 <h3>1. Render refused — low disk space on /tmp</h3>
@@ -356,12 +359,15 @@ as untested. <a href="https://github.com/mymyanmarland/brag">Fork</a> &middot;
 review is done.</span></p>
 </div></footer>
 <script>
-function showTab(id){
+function showTab(id, go){
   document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('on')});
   document.querySelectorAll('.tabs button').forEach(function(b){b.classList.remove('on')});
   var el=document.getElementById(id); if(el){el.classList.add('on');}
   var btn=document.querySelector('[data-tab="'+id+'"]'); if(btn){btn.classList.add('on');}
-  if(history.replaceState){history.replaceState(null,'','#'+id);}
+  if(go){
+    if(el && el.scrollIntoView){el.scrollIntoView({behavior:'smooth', block:'start'});}
+    if(history.replaceState){history.replaceState(null,'','#'+id);}
+  }
 }
 function setLang(l){
   document.body.classList.toggle('mm', l==='mm');
@@ -383,7 +389,7 @@ function copyText(btn, text){
 document.addEventListener('DOMContentLoaded', function(){
   var hash=(location.hash||'#what').slice(1);
   if(!document.getElementById(hash)){hash='what';}
-  showTab(hash);
+  showTab(hash, false);
   var saved=null; try{saved=localStorage.getItem('brag-guide-lang');}catch(e){}
   if(saved==='mm'){setLang('mm');}
   document.querySelectorAll('[data-copy]').forEach(function(btn){
