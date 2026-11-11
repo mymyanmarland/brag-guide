@@ -396,7 +396,7 @@ S5_SHARED = """
 <pre id="c-phase2"><code>__PHASE2__</code></pre></div>
 """.replace("__PHASE1__", PHASE1_MSG).replace("__PHASE2__", PHASE2_MSG)
 
-S5_MM = mm_block("i5", [MM["q1"], MM["q2"]])
+S5_MM = mm_block("i5", [MM["m1"], MM["m2"]])
 
 S6_EN = """
 <div class="lang-en">
@@ -446,7 +446,7 @@ rather than pretending otherwise.</p>
 </div>
 """
 
-S7_MM = mm_block("i7", [MM["w1"]])
+S7_MM = mm_block("i7", [MM["u1"], MM["u2"], MM["u3"]])
 
 S8_EN = """
 <div class="lang-en">
@@ -475,7 +475,7 @@ creative rules. On Opus 5.5, /brag switches to /brag-slim automatically.</p>
 </div>
 """
 
-S8_MM = mm_block("i8", [MM["q2"]])
+S8_MM = '<div class="lang-mm" lang="my">' + "".join("<h3>%s</h3><p>%s</p>" % (MM["fq%d" % n], MM["fa%d" % n]) for n in (1, 2, 3, 4)) + '</div>'
 
 SECTIONS = [
     ("what", "What is /brag?", "t1", S1_EN, S1_MM, S1_SHARED),
