@@ -53,6 +53,11 @@
 #   composition as muse2. p4c "PocketLab ko App na-myi pyaw-pa":
 #   pyaw-pa 0 hits as a whole, but pyaw (change, 60x) + pa (451x)
 #   is the file's own verb+pa pattern (lote-pa, pay-pa in i4/q1).
+#   ex "upama": 12x OK ("upama-a-hpyint" for example contexts).
+#   2026-11-11 fix: S4 lede i4 == bullet p2a (byte-identical) — the live
+#   MM Section 4 showed the same sentence twice and the example bullets
+#   had no heading, so the section read as random statements. p2a dropped
+#   from S4_MM; examples now sit under an "upama" h3.
 # + byte-dump of every Myanmar run, re-read word by word.
 MM = {
     # hero
@@ -94,6 +99,7 @@ MM = {
     "p4a": "Muse \u1000 PocketLab \u1000\u102d\u102f Video \u101c\u102f\u1015\u103a\u1015\u1031\u1038\u1010\u101a\u103a\u104b",  # Muse ka PocketLab ko Video lote-pay-tal
     "p4b": "Muse \u1000 Guide \u1000\u102d\u102f Video \u101c\u102f\u1015\u103a\u1015\u1031\u1038\u1010\u101a\u103a\u104b",  # Muse ka Guide ko Video lote-pay-tal
     "p4c": "PocketLab \u1000\u102d\u102f App \u1014\u102c\u1019\u100a\u103a \u1015\u103c\u1031\u102c\u1004\u103a\u1015\u102b\u104b",  # PocketLab ko App na-myi pyaw-pa (replace PocketLab with your app name)
+    "ex": "\u1025\u1015\u1019\u102c",  # upama (example, heading)
     # troubleshooting
     "tr1": "/tmp \u1014\u1031\u101b\u102c \u1014\u100a\u103a\u1038\u104b TMPDIR \u1000\u102d\u102f \u1015\u103c\u1031\u102c\u1004\u103a\u1015\u1031\u1038\u1015\u102b\u104b",  # /tmp ne-ya nay. TMPDIR ko pyaw-pay-par
     "tr2": "GSAP CDN \u1019\u101b\u1015\u102b\u104b GSAP \u1000\u102d\u102f copy \u101c\u102f\u1015\u103a\u1015\u102b\u104b",  # GSAP CDN ma-ya-par. GSAP ko copy lote-par

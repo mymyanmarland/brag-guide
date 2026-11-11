@@ -357,7 +357,7 @@ when you say so, after you have seen it.</div>
 </div>
 """
 
-S4_MM = mm_block("i4", [MM["p2a"], MM["p2b"], MM["p4a"], MM["p4b"], MM["p4c"]])
+S4_MM = mm_block("i4", [MM["p2b"]]) + '<div class="lang-mm" lang="my"><h3>%s</h3><ul>%s</ul></div>' % (MM["ex"], "".join("<li>%s</li>" % MM[k] for k in ("p4a", "p4b", "p4c")))
 
 PHASE1_MSG = """Get ready to make launch videos with /brag, the open-source skill from https://github.com/latent-spaces/brag. Install it on YOUR OWN VM now, so you are ready when I give you a project. Download everything yourself from GitHub on your machine.
 codex plugin marketplace add latent-spaces/brag
@@ -753,51 +753,96 @@ creative rules. On Opus 5.5, /brag switches to /brag-slim automatically.
 }
 
 BANNER = """
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" role="img" aria-label="/brag — you built it, now brag">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" role="img" aria-label="/brag Guide — You built it. Now brag.">
 <defs>
 <pattern id="dots" width="18" height="18" patternUnits="userSpaceOnUse">
 <circle cx="4" cy="4" r="2.2" fill="#111" opacity=".16"/>
 </pattern>
+<pattern id="pinkdots" width="16" height="16" patternUnits="userSpaceOnUse">
+<circle cx="4" cy="4" r="2" fill="#111" opacity=".28"/>
+</pattern>
 </defs>
-<rect width="1200" height="300" fill="#ffd500"/>
-<rect width="1200" height="300" fill="url(#dots)"/>
-<rect x="0" y="0" width="1200" height="300" fill="none" stroke="#111" stroke-width="6"/>
-<g transform="translate(60,75)">
-<rect x="0" y="0" width="150" height="150" rx="22" fill="#ff2e88" stroke="#111" stroke-width="4"/>
-<polygon points="55,40 115,75 55,110" fill="#fff" stroke="#111" stroke-width="4" stroke-linejoin="round">
+<rect width="1200" height="420" fill="#ffd500"/>
+<rect width="1200" height="380" fill="url(#dots)"/>
+<rect x="0" y="0" width="1200" height="420" fill="none" stroke="#111" stroke-width="6"/>
+<rect x="56" y="36" width="310" height="54" rx="27" fill="#111"/>
+<text x="211" y="72" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="30" font-weight="900" letter-spacing="2" fill="#ffd500">/brag &#215; Muse</text>
+<text x="60" y="205" font-family="Inter,system-ui,sans-serif" font-size="96" font-weight="900" fill="#111">YOU BUILT IT.</text>
+<text x="66" y="311" font-family="Inter,system-ui,sans-serif" font-size="96" font-weight="900" fill="#111">NOW BRAG.</text>
+<text x="60" y="305" font-family="Inter,system-ui,sans-serif" font-size="96" font-weight="900" fill="#ff2e88">NOW BRAG.</text>
+<text x="62" y="352" font-family="Inter,system-ui,sans-serif" font-size="24" font-weight="700" fill="#111">One command. No video editor. Your Muse does the work.</text>
+<g transform="translate(1000,28)">
+<g>
+<animateTransform attributeName="transform" type="rotate" values="0 60 54; 7 60 54; 0 60 54" dur="6s" repeatCount="indefinite"/>
+<polygon points="65,0 76,18 96,10 94,32 116,36 104,52 120,64 102,72 102,94 82,88 74,108 62,92 44,106 38,84 16,88 20,66 0,58 12,42 4,24 26,20 24,0 44,10" fill="#ff2e88" stroke="#111" stroke-width="3" stroke-linejoin="round">
+<animateTransform attributeName="transform" type="scale" values="1;1.1;1" additive="sum" dur="3s" repeatCount="indefinite"/>
+</polygon>
+<text x="60" y="58" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="26" font-weight="900" fill="#111">21s</text>
+<text x="60" y="84" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="19" font-weight="900" fill="#111">VIDEO!</text>
+</g>
+</g>
+<g transform="translate(1000,180)">
+<rect x="0" y="0" width="130" height="130" rx="22" fill="#00b8d9" stroke="#111" stroke-width="4"/>
+<polygon points="48,35 100,65 48,95" fill="#fff" stroke="#111" stroke-width="4" stroke-linejoin="round">
 <animateTransform attributeName="transform" type="scale" values="1;1.12;1" additive="sum" dur="2.4s" repeatCount="indefinite"/>
 </polygon>
 </g>
-<text x="250" y="148" font-family="Inter,system-ui,sans-serif" font-size="92" font-weight="900" fill="#ff2e88">/brag</text>
-<text x="246" y="144" font-family="Inter,system-ui,sans-serif" font-size="92" font-weight="900" fill="#111">/brag</text>
-<text x="248" y="196" font-family="Inter,system-ui,sans-serif" font-size="30" font-weight="800" fill="#111">You built it. Now brag.</text>
-<text x="248" y="232" font-family="Inter,system-ui,sans-serif" font-size="19" font-weight="700" fill="#333">One command. No video editor. Your AI agent does the work.</text>
-<g transform="translate(1000,42)">
-<polygon points="65,0 76,18 96,10 94,32 116,36 104,52 120,64 102,72 102,94 82,88 74,108 62,92 44,106 38,84 16,88 20,66 0,58 12,42 4,24 26,20 24,0 44,10" fill="#00b8d9" stroke="#111" stroke-width="3" stroke-linejoin="round">
-<animateTransform attributeName="transform" type="scale" values="1;1.1;1" additive="sum" dur="3s" repeatCount="indefinite"/>
-</polygon>
-<text x="60" y="62" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="24" font-weight="900" fill="#111">21s!</text>
-</g>
+<rect x="0" y="380" width="1200" height="40" fill="#ff2e88"/>
+<rect x="0" y="380" width="1200" height="40" fill="url(#pinkdots)"/>
 </svg>
 """
 
-README = """<p align="center"><img src="site/assets/banner.svg" width="1200" alt="/brag — You built it. Now brag."></p>
+HOW_IT_WORKS = """
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" role="img" aria-label="How it works — Phase 1: get your Muse ready. Phase 2: ask for your video.">
+<rect x="66" y="56" width="460" height="190" fill="#111"/>
+<rect x="60" y="50" width="460" height="190" fill="#fff" stroke="#111" stroke-width="3"/>
+<rect x="84" y="74" width="118" height="38" rx="19" fill="#ff2e88"/>
+<text x="143" y="99" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="17" font-weight="900" letter-spacing="1" fill="#fff">PHASE 1</text>
+<text x="84" y="146" font-family="Inter,system-ui,sans-serif" font-size="27" font-weight="900" fill="#111">GET YOUR MUSE READY</text>
+<text x="84" y="184" font-family="Inter,system-ui,sans-serif" font-size="19" font-weight="700" fill="#333">Install /brag + Hyperframes</text>
+<text x="84" y="212" font-family="Inter,system-ui,sans-serif" font-size="19" font-weight="700" fill="#333">Test render, show video + check</text>
+<line x1="540" y1="145" x2="648" y2="145" stroke="#111" stroke-width="6" stroke-dasharray="14 10">
+<animate attributeName="stroke-dashoffset" values="0;-24" dur="0.8s" repeatCount="indefinite"/>
+</line>
+<polygon points="648,145 624,131 624,159" fill="#111"/>
+<rect x="686" y="56" width="460" height="190" fill="#111"/>
+<rect x="680" y="50" width="460" height="190" fill="#fff" stroke="#111" stroke-width="3"/>
+<rect x="704" y="74" width="118" height="38" rx="19" fill="#00b8d9"/>
+<text x="763" y="99" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="17" font-weight="900" letter-spacing="1" fill="#fff">PHASE 2</text>
+<text x="704" y="146" font-family="Inter,system-ui,sans-serif" font-size="27" font-weight="900" fill="#111">ASK FOR YOUR VIDEO</text>
+<text x="704" y="184" font-family="Inter,system-ui,sans-serif" font-size="19" font-weight="700" fill="#333">App name + repo link</text>
+<text x="704" y="212" font-family="Inter,system-ui,sans-serif" font-size="19" font-weight="700" fill="#333">21s video, you review, you post</text>
+</svg>
+"""
 
-# /brag Guide — You built it. Now brag.
+README = """<p align="center"><img src="site/assets/banner.svg" width="1200" alt="/brag Guide — You built it. Now brag."></p>
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Upstream](https://img.shields.io/badge/upstream-latent--spaces%2Fbrag-blue)](https://github.com/latent-spaces/brag)
-[![Status](https://img.shields.io/badge/status-live-brightgreen)]()
-![Language](https://img.shields.io/badge/lang-EN%20%2B%20%E1%80%99%E1%80%BC%E1%80%94%E1%80%BA%E1%80%99%E1%80%AC-green)
+<h1 align="center">/brag Guide — You built it. Now brag.</h1>
 
-> **Live.** https://brag-guide.funapp.live — verified steps only.
+<p align="center">
+  <a href="https://brag-guide.funapp.live"><img src="https://img.shields.io/badge/site-brag--guide.funapp.live-111111" alt="Live site"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-ff2e88" alt="License: MIT"></a>
+  <a href="https://github.com/latent-spaces/brag"><img src="https://img.shields.io/badge/upstream-latent--spaces%2Fbrag-00b8d9" alt="Upstream"></a>
+  <img src="https://img.shields.io/badge/status-live-brightgreen" alt="Status: live">
+  <img src="https://img.shields.io/badge/lang-EN%20%2B%20MM-ffd500" alt="English + Burmese">
+</p>
 
-Use [**/brag**](https://github.com/latent-spaces/brag) with Muse: your Muse
-turns the project you just built into a short launch video — the open-source
-agent skill by [latent-spaces](https://github.com/latent-spaces) (Shunit Haviv
-Hakimi), MIT. One command. No video editor. Your Muse does the work.
+<p align="center"><strong>Use <a href="https://github.com/latent-spaces/brag">/brag</a> with Muse.</strong> Your Muse installs it, tests it, and turns your project into a short launch video — motion, music, share copy and all. One command. No video editor.<br>📖 Read the guide in English and Burmese → <a href="https://brag-guide.funapp.live">brag-guide.funapp.live</a></p>
 
-## Quick start
+## 🎬 Watch it — the guide's own launch video
+
+<p align="center"><a href="https://brag-guide.funapp.live"><img src="site/assets/guide-video.jpg" width="800" alt="The /brag Guide's own 21-second launch video, made with /brag"></a></p>
+
+<p align="center"><em>21 seconds, made with /brag — the same way this guide teaches. Click the poster to open the guide.</em></p>
+
+## 🧭 How it works
+
+<p align="center"><img src="site/assets/how-it-works.svg" width="1200" alt="Phase 1: get your Muse ready. Phase 2: ask for your video."></p>
+
+1. **Get your Muse ready.** Install /brag + Hyperframes on the Muse's own machine, prove it with a test render on a bundled example, show the test video and the check result. Make nothing real yet.
+2. **Give it your project.** App name + repo link. The Muse makes the video, shows video + frames first, you review, then you download and post it yourself. One video, one Muse at a time.
+
+## 🚀 Quick start
 
 ```bash
 # Codex
@@ -820,48 +865,40 @@ Then, inside any project:
 
 Your video appears in `brag-output/brag.mp4`.
 
-## What's inside
+## 📦 What's inside
 
 | Path | What it is |
 |---|---|
-| `site/index.html` | The guide website — 8 tabbed sections, English + Burmese toggle |
-| `site/assets/brag.mp4` | The verified PocketLab demo video (21s, 1920×1080, 30fps) |
-| `site/assets/brag.jpg` | The demo poster frame |
-| `docs/` | The same content as short Markdown chapters, one file per section |
-| `scripts/` | Builders for the site and the Burmese strings |
-| `assets/banner.svg` | Animated banner art |
+| 🌐 `site/index.html` | The guide website — 8 tabbed sections, English + Burmese toggle |
+| 🎬 `site/assets/brag.mp4` | The verified PocketLab demo video (21s, 1920×1080, 30fps) |
+| 🖼️ `site/assets/brag.jpg` | The demo poster frame |
+| 🎬 `site/assets/guide-video.mp4` | The guide's own launch video (21s, music + sound effects) |
+| 🖼️ `site/assets/guide-video.jpg` | The guide video poster frame |
+| 🎨 `assets/banner.svg` | Animated Pop Art banner art |
+| 🧭 `assets/how-it-works.svg` | Animated two-phase flow diagram |
+| 📚 `docs/` | The same content as short Markdown chapters, one file per section |
+| 🛠️ `scripts/` | Builders for the site and the Burmese strings |
 
-## The method — two phases
-
-1. **Get your Muse ready.** Install /brag + Hyperframes on the Muse's own
-   machine, prove it with a test render on a bundled example, show the test
-   video and the check result. Make nothing real yet.
-2. **Give it your project.** App name + repo link. The Muse makes the video,
-   shows video + frames first, you review, then you download and post it
-   yourself. One video, one Muse at a time.
-
-## Verified, not promised
+## ✅ Verified, not promised
 
 Every step in this guide was run end-to-end on a test machine on 2026-11-10:
 
-- Codex plugin install works; Hyperframes 0.9.30 renders.
-- Test video: PocketLab, 21 seconds, 1920×1080, 30 fps, 1.5 MB, music +
-  sound effects. Burmese hero line renders correctly.
-- Hyperframes check: 0 errors, 33/33 contrast passed.
-- Two fixes needed on the test machine are documented in
-  `docs/06-troubleshooting.md` (low disk on `/tmp`, GSAP CDN failure).
+- ✅ Codex plugin install works; Hyperframes 0.9.30 renders.
+- ✅ Test video: PocketLab, 21 seconds, 1920×1080, 30 fps, 1.5 MB, music + sound effects. Burmese hero line renders correctly.
+- ✅ Hyperframes check: 0 errors, 33/33 contrast passed.
+- ✅ Two fixes needed on the test machine are documented in `docs/06-troubleshooting.md` (low disk on `/tmp`, GSAP CDN failure).
 
-Things **not** tested are listed honestly in `docs/07-limits.md` (Claude Code
-run, Codex agent run with auth, audio-reactive visuals, Windows install).
+Things **not** tested are listed honestly in `docs/07-limits.md` (Claude Code run, Codex agent run with auth, audio-reactive visuals, Windows install).
 
-## Links
+## 🔗 Links
 
-- Upstream: https://github.com/latent-spaces/brag
-- Docs: https://latent-spaces.github.io/brag
-- Hosted: https://letsbrag.app
-- Fork: https://github.com/mymyanmarland/brag
+- 🌐 Live guide: https://brag-guide.funapp.live
+- ⬆️ Upstream: https://github.com/latent-spaces/brag
+- 📖 Docs: https://latent-spaces.github.io/brag
+- 🎬 Hosted: https://letsbrag.app
+- 🍴 Fork: https://github.com/mymyanmarland/brag
 
-## License
+## 📄 License
 
 MIT — see [LICENSE](LICENSE). /brag itself is MIT by latent-spaces.
 """
@@ -913,11 +950,15 @@ def main():
         f.write(BANNER)
     with open(os.path.join(SITE, "assets", "banner.svg"), "w", encoding="utf-8") as f:
         f.write(BANNER)
+    with open(os.path.join(ROOT, "assets", "how-it-works.svg"), "w", encoding="utf-8") as f:
+        f.write(HOW_IT_WORKS)
+    with open(os.path.join(SITE, "assets", "how-it-works.svg"), "w", encoding="utf-8") as f:
+        f.write(HOW_IT_WORKS)
     with open(os.path.join(ROOT, "LICENSE"), "w", encoding="utf-8") as f:
         f.write(LICENSE)
     with open(os.path.join(ROOT, ".gitignore"), "w", encoding="utf-8") as f:
         f.write(GITIGNORE)
-    print("built: site/index.html, docs/*.md, README.md, banner.svg, LICENSE, .gitignore")
+    print("built: site/index.html, docs/*.md, README.md, banner.svg, how-it-works.svg, LICENSE, .gitignore")
 
 
 if __name__ == "__main__":
