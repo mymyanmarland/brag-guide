@@ -253,7 +253,7 @@ The Burmese hero line renders correctly.</p>
 </figure>
 """
 
-S1_MM = mm_block("i1", [MM["w1"], MM["w2"], MM["w3"], MM["muse1"]])
+S1_MM = mm_block("i1", [MM["w1"], MM["w2"], MM["w3"], MM["muse1"]]) + '<div class="lang-mm" lang="my"><div class="callout"><strong>%s</strong> %s</div></div>' % (MM["muse1"], MM["muse2"])
 
 S2_EN = """
 <div class="lang-en">

@@ -45,6 +45,10 @@
 #   "twe-thone" (use together) 0 hits REJECTED, "da-ka" 0 hits REJECTED —
 #   so the "hpo" purpose suffix was dropped, not assumed. note "Guide ka
 #   live pa" follows the verified "/brag ka" pattern (i1).
+#   muse2 "Muse ka Video ko lote-pay-tal": lote-pay 4x OK ("encrypt
+#   pu-lote-pay" do-for contexts); lote-pay-tal 0 hits, but it is
+#   lote-pay + tal (sentence-final particle, 44x) — the same
+#   composition pattern as i1 "pyaw-pay-tal" and w2 "thon-tal".
 # + byte-dump of every Myanmar run, re-read word by word.
 MM = {
     # hero
@@ -73,6 +77,7 @@ MM = {
     "w2": "Agent \u1000 Project \u1000\u102d\u102f \u1016\u1010\u103a\u1010\u101a\u103a\u104b Story \u1005\u102e\u1005\u1009\u103a\u1010\u101a\u103a\u104b \u1010\u1000\u101a\u1037\u103a UI \u1000\u102d\u102f \u101e\u102f\u1036\u1038\u1010\u101a\u103a\u104b",  # Agent ka Project ko hpat-tay. Story si-sin-tay. Ta-kay UI ko thon-tay
     "w3": "\u1017\u102e\u1012\u102e\u101a\u102d\u102f \u1041\u1045\u2013\u1042\u1045 seconds\u104b",  # video 15-25 seconds
     "muse1": "Muse \u1014\u1032\u1037 \u101e\u102f\u1004\u103a Guide \u1015\u102b\u104b",  # Muse ne thone Guide pa (use with Muse)
+    "muse2": "Muse \u1000 Video \u1000\u102d\u102f \u101c\u102f\u1015\u103a\u1015\u1031\u1038\u1010\u101a\u103a\u104b",  # Muse ka Video ko lote-pay-tal (Muse makes the video for you)
     # quick-start bullets
     "q1": "Install \u101c\u102f\u1015\u103a\u1015\u102b\u104b",
     "q2": "\u1005\u1019\u103a\u1038\u101e\u1015\u103a\u1015\u1031\u1038\u1015\u102b\u104b",  # sa-tin-pay-par (test + give)
