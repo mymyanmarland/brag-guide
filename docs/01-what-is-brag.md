@@ -7,6 +7,9 @@
 (created 2026-06-16). Docs: https://latent-spaces.github.io/brag.
 Hosted: https://letsbrag.app. Fork: https://github.com/mymyanmarland/brag.
 
+This guide is for using /brag with Muse. /brag runs inside your Muse: the Muse
+reads the project, plans the video, and renders it. One video, one Muse at a time.
+
 It turns a project you just built into a short (15-25s) launch video with
 motion, music, SFX and share copy, powered by Hyperframes (HeyGen's
 open-source HTML-to-video framework). The agent reads the project code, plans

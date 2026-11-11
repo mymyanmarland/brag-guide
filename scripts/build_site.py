@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the /brag guide site + docs (LOCAL DRAFT ONLY — not published).
+"""Build the /brag guide site + docs (LIVE at brag-guide.funapp.live).
 
 Run:  python3 build_site.py
 Outputs: site/index.html, docs/*.md, README.md, assets/banner.svg,
@@ -199,6 +199,7 @@ S1_EN = """
 <p class="lede">/brag is an open-source agent skill that turns a project you just built
 into a short, shareable launch video — music, motion, and share copy included.
 One command. No video editor.</p>
+<div class="callout"><strong>Made for Muse.</strong> /brag runs inside your Muse — the Muse reads your project, plans the video, and renders it. You never open a video editor; you just ask your Muse.</div>
 <h3>Who made it</h3>
 <p>By <strong>latent-spaces</strong> (Shunit Haviv Hakimi), MIT license.
 Original repo: <a href="https://github.com/latent-spaces/brag">github.com/latent-spaces/brag</a>
@@ -234,7 +235,7 @@ Voiceover is off by default; <code>/brag --voice</code> adds Kokoro narration.
 """
 
 S1_SHARED = """
-<h3>Example — PocketLab</h3>
+<h3>Example 1 — PocketLab</h3>
 <p>This 21-second video was made from a real project (PocketLab, a phone science
 lab with 100 experiments) on a test machine: 1920&times;1080, 30 fps, 1.5 MB,
 music + sound effects. Hyperframes check: 0 errors, 33/33 contrast passed.
@@ -244,9 +245,15 @@ The Burmese hero line renders correctly.</p>
 <figcaption>PocketLab launch video, made with /brag. Share copy:
 &ldquo;Made PocketLab — a science lab in your phone. 100 experiments, in Burmese.&rdquo;</figcaption>
 </figure>
+<h3>Example 2 — This guide's own video</h3>
+<p>This guide has its own launch video, made the same way — /brag, 21 seconds, music + sound effects. Watch it, then make one for your project.</p>
+<figure>
+<video controls preload="metadata" poster="assets/guide-video.jpg" src="assets/guide-video.mp4"></video>
+<figcaption>The /brag Guide's own launch video, made with /brag.</figcaption>
+</figure>
 """
 
-S1_MM = mm_block("i1", [MM["w1"], MM["w2"], MM["w3"]])
+S1_MM = mm_block("i1", [MM["w1"], MM["w2"], MM["w3"], MM["muse1"]])
 
 S2_EN = """
 <div class="lang-en">
@@ -340,6 +347,10 @@ the video must show. One line is enough.</li>
 <li>You review it. Wrong word, wrong scene, wrong tone? Say so — it re-renders.</li>
 <li>When you approve, <strong>download the mp4 and post it yourself</strong>.</li>
 </ol>
+<h3>Worked examples</h3>
+<p><strong>PocketLab.</strong> The Phase 2 message (Section 5) with "PocketLab" + its project folder → the Muse returned a 21-second video, music + sound effects, plus the frames. Nothing was published.</p>
+<p><strong>This guide.</strong> The same flow made the guide's own 21-second launch video — watch it in Section 1. Same steps, same checks, same "show first" rule.</p>
+<p><strong>Your app.</strong> Replace "PocketLab" with your app name and add its repo link. The steps don't change.</p>
 <div class="callout"><strong>Show first, publish later.</strong>
 A draft agreed in principle is not a publish go. The video only goes public
 when you say so, after you have seen it.</div>
@@ -489,7 +500,7 @@ def build_html():
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>/brag Guide — You built it. Now brag.</title>
-<meta name="description" content="Turn the project you just built into a short launch video with /brag — one command, no video editor.">
+<meta name="description" content="Use /brag with Muse: your AI agent turns your project into a short launch video — one command, no video editor.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
@@ -503,10 +514,9 @@ def build_html():
 <button data-lang="mm" lang="my" onclick="setLang('mm')">\u1019\u103c\u1014\u103a\u1019\u102c</button>
 </div></div></header>
 <section class="hero"><div class="burst">21s<br>VIDEO!</div><div class="wrap">
-<div class="kicker">/brag &middot; Open-source agent skill &middot; MIT</div>
+<div class="kicker">/brag &times; Muse &middot; Open-source agent skill &middot; MIT</div>
 <h1>You built it.<br><span>Now brag.</span></h1>
-<p>Turn the project you just built into a short launch video — motion, music,
-share copy and all. One command, no video editor, your own AI agent does the work.</p>
+<p>Use /brag with Muse: your Muse installs it, tests it, and turns your project into a short launch video — motion, music, share copy and all. One command. No video editor.</p>
 <div class="cta">
 <a class="btn btn-gold" href="#quick" onclick="showTab('quick', true); return false;">Start in 3 steps</a>
 <a class="btn btn-ghost" href="https://github.com/latent-spaces/brag">Upstream repo</a>
@@ -522,14 +532,13 @@ share copy and all. One command, no video editor, your own AI agent does the wor
 </main>
 <footer><div class="wrap">
 <p>/brag is by <a href="https://github.com/latent-spaces/brag">latent-spaces</a>
-(Shunit Haviv Hakimi), MIT. This guide is a community draft — not affiliated
+(Shunit Haviv Hakimi), MIT. This guide is a community guide — not affiliated
 with latent-spaces or HeyGen. Verified steps only; untested things are marked
 as untested. <a href="https://github.com/mymyanmarland/brag">Fork</a> &middot;
 <a href="https://latent-spaces.github.io/brag">Docs</a> &middot;
 <a href="https://letsbrag.app">letsbrag.app</a></p>
-<p><strong class="lang-en">Draft:</strong><span class="lang-mm" lang="my">%s</span>
-<span class="lang-en">This is a local draft. Do not treat it as published until the
-review is done.</span></p>
+<p><strong class="lang-en">Live:</strong><span class="lang-mm" lang="my">%s</span>
+<span class="lang-en">This guide is live. Verified steps only; untested things are marked as untested.</span></p>
 </div></footer>
 <script>%s</script>
 </body>
@@ -553,6 +562,9 @@ DOC_BODIES = {
 (Shunit Haviv Hakimi), MIT license. Repo: https://github.com/latent-spaces/brag
 (created 2026-06-16). Docs: https://latent-spaces.github.io/brag.
 Hosted: https://letsbrag.app. Fork: https://github.com/mymyanmarland/brag.
+
+This guide is for using /brag with Muse. /brag runs inside your Muse: the Muse
+reads the project, plans the video, and renders it. One video, one Muse at a time.
 
 It turns a project you just built into a short (15-25s) launch video with
 motion, music, SFX and share copy, powered by Hyperframes (HeyGen's
@@ -645,6 +657,16 @@ Then:
 2. It shows you the video and key frames first. Nothing is published.
 3. You review it. Wrong word, wrong scene, wrong tone? Say so — it re-renders.
 4. When you approve, download the mp4 and post it yourself.
+
+Worked examples:
+
+- PocketLab — the Phase 2 message with "PocketLab" + its project folder →
+  the Muse returned a 21-second video, music + SFX, plus the frames.
+  Nothing was published.
+- This guide — the same flow made the guide's own 21-second launch video
+  (see Section 1). Same steps, same checks.
+- Your app — replace "PocketLab" with your app name and add its repo link.
+  The steps don't change.
 
 Show first, publish later. A draft agreed in principle is not a publish go.
 """,
@@ -765,16 +787,15 @@ README = """<p align="center"><img src="site/assets/banner.svg" width="1200" alt
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Upstream](https://img.shields.io/badge/upstream-latent--spaces%2Fbrag-blue)](https://github.com/latent-spaces/brag)
-[![Status](https://img.shields.io/badge/status-draft-orange)]()
+[![Status](https://img.shields.io/badge/status-live-brightgreen)]()
 ![Language](https://img.shields.io/badge/lang-EN%20%2B%20%E1%80%99%E1%80%BC%E1%80%94%E1%80%BA%E1%80%99%E1%80%AC-green)
 
-> **Draft.** This is a local draft for review. Do not treat it as published
-> until the review is done.
+> **Live.** https://brag-guide.funapp.live — verified steps only.
 
-Turn the project you just built into a short launch video with
-[**/brag**](https://github.com/latent-spaces/brag) — the open-source agent
-skill by [latent-spaces](https://github.com/latent-spaces) (Shunit Haviv
-Hakimi), MIT. One command. No video editor. Your own AI agent does the work.
+Use [**/brag**](https://github.com/latent-spaces/brag) with Muse: your Muse
+turns the project you just built into a short launch video — the open-source
+agent skill by [latent-spaces](https://github.com/latent-spaces) (Shunit Haviv
+Hakimi), MIT. One command. No video editor. Your Muse does the work.
 
 ## Quick start
 

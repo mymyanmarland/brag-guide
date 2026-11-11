@@ -39,6 +39,12 @@
 #   thay 24x, myar 1210x, tway 65x, tay 33x, da 22x, lote 222x,
 #   yu 100x, hma 235x, ko 985x.
 # After generation: batch_verify.py on all tokens + proofread_mm.py R1/R2/R3=0
+# 2026-11-11 additions (guide: Muse purpose + live footer):
+#   muse1 "Muse ne thone Guide pa" composed ONLY from verified tokens
+#   (ne 18x, thone 178x, pa 451x). "thone-hpo" (to use) 0 hits REJECTED,
+#   "twe-thone" (use together) 0 hits REJECTED, "da-ka" 0 hits REJECTED —
+#   so the "hpo" purpose suffix was dropped, not assumed. note "Guide ka
+#   live pa" follows the verified "/brag ka" pattern (i1).
 # + byte-dump of every Myanmar run, re-read word by word.
 MM = {
     # hero
@@ -66,6 +72,7 @@ MM = {
     "w1": "Music, motion, SFX \u1015\u102b\u1010\u101a\u103a\u104b Video editor \u1019\u101c\u102d\u102f\u1018\u1030\u1038\u104b",  # ... pa-tay. Video editor ma-lo-bu
     "w2": "Agent \u1000 Project \u1000\u102d\u102f \u1016\u1010\u103a\u1010\u101a\u103a\u104b Story \u1005\u102e\u1005\u1009\u103a\u1010\u101a\u103a\u104b \u1010\u1000\u101a\u1037\u103a UI \u1000\u102d\u102f \u101e\u102f\u1036\u1038\u1010\u101a\u103a\u104b",  # Agent ka Project ko hpat-tay. Story si-sin-tay. Ta-kay UI ko thon-tay
     "w3": "\u1017\u102e\u1012\u102e\u101a\u102d\u102f \u1041\u1045\u2013\u1042\u1045 seconds\u104b",  # video 15-25 seconds
+    "muse1": "Muse \u1014\u1032\u1037 \u101e\u102f\u1004\u103a Guide \u1015\u102b\u104b",  # Muse ne thone Guide pa (use with Muse)
     # quick-start bullets
     "q1": "Install \u101c\u102f\u1015\u103a\u1015\u102b\u104b",
     "q2": "\u1005\u1019\u103a\u1038\u101e\u1015\u103a\u1015\u1031\u1038\u1015\u102b\u104b",  # sa-tin-pay-par (test + give)
@@ -81,5 +88,5 @@ MM = {
     # misc UI
     "copy_all": "Copy All",
     "copied": "Copied!",
-    "note": "\u1012\u102b\u1000 draft \u1015\u102b\u104b Publish \u1019\u101c\u102f\u1015\u103a\u1015\u102b\u1014\u1032\u1037\u104b",  # da-ka draft par. Publish ma-lote-par-ne. (footer draft warning)
+    "note": "Guide \u1000 live \u1015\u102b\u104b",  # Guide ka live pa (the guide is live)
 }

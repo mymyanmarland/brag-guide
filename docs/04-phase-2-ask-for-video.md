@@ -17,5 +17,15 @@ Then:
 3. You review it. Wrong word, wrong scene, wrong tone? Say so — it re-renders.
 4. When you approve, download the mp4 and post it yourself.
 
+Worked examples:
+
+- PocketLab — the Phase 2 message with "PocketLab" + its project folder →
+  the Muse returned a 21-second video, music + SFX, plus the frames.
+  Nothing was published.
+- This guide — the same flow made the guide's own 21-second launch video
+  (see Section 1). Same steps, same checks.
+- Your app — replace "PocketLab" with your app name and add its repo link.
+  The steps don't change.
+
 Show first, publish later. A draft agreed in principle is not a publish go.
 

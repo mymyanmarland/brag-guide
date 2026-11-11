@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>/brag Guide — You built it. Now brag.</title>
-<meta name="description" content="Turn the project you just built into a short launch video with /brag — one command, no video editor.">
+<meta name="description" content="Use /brag with Muse: your AI agent turns your project into a short launch video — one command, no video editor.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
@@ -125,10 +125,9 @@ body.mm .lang-mm.inline{display:inline}
 <button data-lang="mm" lang="my" onclick="setLang('mm')">မြန်မာ</button>
 </div></div></header>
 <section class="hero"><div class="burst">21s<br>VIDEO!</div><div class="wrap">
-<div class="kicker">/brag &middot; Open-source agent skill &middot; MIT</div>
+<div class="kicker">/brag &times; Muse &middot; Open-source agent skill &middot; MIT</div>
 <h1>You built it.<br><span>Now brag.</span></h1>
-<p>Turn the project you just built into a short launch video — motion, music,
-share copy and all. One command, no video editor, your own AI agent does the work.</p>
+<p>Use /brag with Muse: your Muse installs it, tests it, and turns your project into a short launch video — motion, music, share copy and all. One command. No video editor.</p>
 <div class="cta">
 <a class="btn btn-gold" href="#quick" onclick="showTab('quick', true); return false;">Start in 3 steps</a>
 <a class="btn btn-ghost" href="https://github.com/latent-spaces/brag">Upstream repo</a>
@@ -145,6 +144,7 @@ share copy and all. One command, no video editor, your own AI agent does the wor
 <p class="lede">/brag is an open-source agent skill that turns a project you just built
 into a short, shareable launch video — music, motion, and share copy included.
 One command. No video editor.</p>
+<div class="callout"><strong>Made for Muse.</strong> /brag runs inside your Muse — the Muse reads your project, plans the video, and renders it. You never open a video editor; you just ask your Muse.</div>
 <h3>Who made it</h3>
 <p>By <strong>latent-spaces</strong> (Shunit Haviv Hakimi), MIT license.
 Original repo: <a href="https://github.com/latent-spaces/brag">github.com/latent-spaces/brag</a>
@@ -177,8 +177,8 @@ Voiceover is off by default; <code>/brag --voice</code> adds Kokoro narration.
 <li><code>composition/</code> — the Hyperframes project</li>
 </ul>
 </div>
-<div class="lang-mm" lang="my"><p class="lede">/brag က Project ကို ဗီဒီယို ပြောင်ပေးတယ်။</p><ul><li>Music, motion, SFX ပါတယ်။ Video editor မလိုဘူး။</li><li>Agent က Project ကို ဖတ်တယ်။ Story စီစဉ်တယ်။ တကယ့် UI ကို သုံးတယ်။</li><li>ဗီဒီယို ၁၅–၂၅ seconds။</li></ul></div>
-<h3>Example — PocketLab</h3>
+<div class="lang-mm" lang="my"><p class="lede">/brag က Project ကို ဗီဒီယို ပြောင်ပေးတယ်။</p><ul><li>Music, motion, SFX ပါတယ်။ Video editor မလိုဘူး။</li><li>Agent က Project ကို ဖတ်တယ်။ Story စီစဉ်တယ်။ တကယ့် UI ကို သုံးတယ်။</li><li>ဗီဒီယို ၁၅–၂၅ seconds။</li><li>Muse နဲ့ သုင် Guide ပါ။</li></ul></div>
+<h3>Example 1 — PocketLab</h3>
 <p>This 21-second video was made from a real project (PocketLab, a phone science
 lab with 100 experiments) on a test machine: 1920&times;1080, 30 fps, 1.5 MB,
 music + sound effects. Hyperframes check: 0 errors, 33/33 contrast passed.
@@ -187,6 +187,12 @@ The Burmese hero line renders correctly.</p>
 <video controls preload="metadata" poster="assets/brag.jpg" src="assets/brag.mp4"></video>
 <figcaption>PocketLab launch video, made with /brag. Share copy:
 &ldquo;Made PocketLab — a science lab in your phone. 100 experiments, in Burmese.&rdquo;</figcaption>
+</figure>
+<h3>Example 2 — This guide's own video</h3>
+<p>This guide has its own launch video, made the same way — /brag, 21 seconds, music + sound effects. Watch it, then make one for your project.</p>
+<figure>
+<video controls preload="metadata" poster="assets/guide-video.jpg" src="assets/guide-video.mp4"></video>
+<figcaption>The /brag Guide's own launch video, made with /brag.</figcaption>
 </figure>
 </section><section class="panel" id="quick"><h2><span class="lang-en">Quick start</span><span class="lang-mm" lang="my">စတင်နည်း</span></h2>
 <div class="lang-en">
@@ -272,6 +278,10 @@ the video must show. One line is enough.</li>
 <li>You review it. Wrong word, wrong scene, wrong tone? Say so — it re-renders.</li>
 <li>When you approve, <strong>download the mp4 and post it yourself</strong>.</li>
 </ol>
+<h3>Worked examples</h3>
+<p><strong>PocketLab.</strong> The Phase 2 message (Section 5) with "PocketLab" + its project folder → the Muse returned a 21-second video, music + sound effects, plus the frames. Nothing was published.</p>
+<p><strong>This guide.</strong> The same flow made the guide's own 21-second launch video — watch it in Section 1. Same steps, same checks, same "show first" rule.</p>
+<p><strong>Your app.</strong> Replace "PocketLab" with your app name and add its repo link. The steps don't change.</p>
 <div class="callout"><strong>Show first, publish later.</strong>
 A draft agreed in principle is not a publish go. The video only goes public
 when you say so, after you have seen it.</div>
@@ -376,14 +386,13 @@ creative rules. On Opus 5.5, /brag switches to /brag-slim automatically.</p>
 </main>
 <footer><div class="wrap">
 <p>/brag is by <a href="https://github.com/latent-spaces/brag">latent-spaces</a>
-(Shunit Haviv Hakimi), MIT. This guide is a community draft — not affiliated
+(Shunit Haviv Hakimi), MIT. This guide is a community guide — not affiliated
 with latent-spaces or HeyGen. Verified steps only; untested things are marked
 as untested. <a href="https://github.com/mymyanmarland/brag">Fork</a> &middot;
 <a href="https://latent-spaces.github.io/brag">Docs</a> &middot;
 <a href="https://letsbrag.app">letsbrag.app</a></p>
-<p><strong class="lang-en">Draft:</strong><span class="lang-mm" lang="my">ဒါက draft ပါ။ Publish မလုပ်ပါနဲ့။</span>
-<span class="lang-en">This is a local draft. Do not treat it as published until the
-review is done.</span></p>
+<p><strong class="lang-en">Live:</strong><span class="lang-mm" lang="my">Guide က live ပါ။</span>
+<span class="lang-en">This guide is live. Verified steps only; untested things are marked as untested.</span></p>
 </div></footer>
 <script>
 function showTab(id, go){

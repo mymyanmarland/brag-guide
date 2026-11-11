@@ -4,16 +4,15 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Upstream](https://img.shields.io/badge/upstream-latent--spaces%2Fbrag-blue)](https://github.com/latent-spaces/brag)
-[![Status](https://img.shields.io/badge/status-draft-orange)]()
+[![Status](https://img.shields.io/badge/status-live-brightgreen)]()
 ![Language](https://img.shields.io/badge/lang-EN%20%2B%20%E1%80%99%E1%80%BC%E1%80%94%E1%80%BA%E1%80%99%E1%80%AC-green)
 
-> **Draft.** This is a local draft for review. Do not treat it as published
-> until the review is done.
+> **Live.** https://brag-guide.funapp.live — verified steps only.
 
-Turn the project you just built into a short launch video with
-[**/brag**](https://github.com/latent-spaces/brag) — the open-source agent
-skill by [latent-spaces](https://github.com/latent-spaces) (Shunit Haviv
-Hakimi), MIT. One command. No video editor. Your own AI agent does the work.
+Use [**/brag**](https://github.com/latent-spaces/brag) with Muse: your Muse
+turns the project you just built into a short launch video — the open-source
+agent skill by [latent-spaces](https://github.com/latent-spaces) (Shunit Haviv
+Hakimi), MIT. One command. No video editor. Your Muse does the work.
 
 ## Quick start
 
