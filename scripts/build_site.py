@@ -370,15 +370,10 @@ Show me the test video and the check result. Do not make any real project video 
 If /tmp is small, set TMPDIR to a workspace folder before rendering.
 If the GSAP CDN fails, vendor GSAP locally."""
 
-PHASE2_MSG = """Make a launch video with /brag, the open-source skill from https://github.com/latent-spaces/brag. Install it on YOUR OWN VM and test it there first. Download it yourself from GitHub on your machine.
-codex plugin marketplace add latent-spaces/brag
-codex plugin add brag@brag
-npx hyperframes browser ensure
-For other agents: npx skills add https://github.com/latent-spaces/brag --skill brag
-Make a 20-second launch video for PocketLab in your VM.
-Show me the video and frames first. Do not publish anything.
-If /tmp is small, set TMPDIR to a workspace folder before rendering.
-If the GSAP CDN fails, vendor GSAP locally."""
+PHASE2_MSG = """Make a launch video for my app with /brag.
+App name: PocketLab
+Repo link: https://github.com/&lt;you&gt;/&lt;app&gt;
+Show me the video and frames first. Do not publish anything."""
 
 S5_EN = """
 <div class="lang-en">
@@ -391,7 +386,7 @@ S5_SHARED = """
 <h3>Phase 1 — Get ready</h3>
 <div class="copybox"><button class="copybtn big" data-copy="c-phase1">Copy All</button>
 <pre id="c-phase1"><code>__PHASE1__</code></pre></div>
-<h3>Phase 2 — Make my video</h3>
+<h3>Phase 2 — Ask for your video</h3>
 <div class="copybox"><button class="copybtn big" data-copy="c-phase2">Copy All</button>
 <pre id="c-phase2"><code>__PHASE2__</code></pre></div>
 """.replace("__PHASE1__", PHASE1_MSG).replace("__PHASE2__", PHASE2_MSG)
@@ -676,7 +671,7 @@ Show first, publish later. A draft agreed in principle is not a publish go.
 __PHASE1__
 ```
 
-## Phase 2 — Make my video
+## Phase 2 — Ask for your video
 
 ```
 __PHASE2__

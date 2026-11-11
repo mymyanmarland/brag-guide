@@ -17,18 +17,13 @@ If /tmp is small, set TMPDIR to a workspace folder before rendering.
 If the GSAP CDN fails, vendor GSAP locally.
 ```
 
-## Phase 2 — Make my video
+## Phase 2 — Ask for your video
 
 ```
-Make a launch video with /brag, the open-source skill from https://github.com/latent-spaces/brag. Install it on YOUR OWN VM and test it there first. Download it yourself from GitHub on your machine.
-codex plugin marketplace add latent-spaces/brag
-codex plugin add brag@brag
-npx hyperframes browser ensure
-For other agents: npx skills add https://github.com/latent-spaces/brag --skill brag
-Make a 20-second launch video for PocketLab in your VM.
+Make a launch video for my app with /brag.
+App name: PocketLab
+Repo link: https://github.com/&lt;you&gt;/&lt;app&gt;
 Show me the video and frames first. Do not publish anything.
-If /tmp is small, set TMPDIR to a workspace folder before rendering.
-If the GSAP CDN fails, vendor GSAP locally.
 ```
 
 Replace `PocketLab` with your app name and add its repo link.
