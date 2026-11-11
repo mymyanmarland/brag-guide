@@ -357,7 +357,7 @@ when you say so, after you have seen it.</div>
 </div>
 """
 
-S4_MM = mm_block("i4", [MM["p2a"], MM["p2b"]])
+S4_MM = mm_block("i4", [MM["p2a"], MM["p2b"], MM["p4a"], MM["p4b"], MM["p4c"]])
 
 PHASE1_MSG = """Get ready to make launch videos with /brag, the open-source skill from https://github.com/latent-spaces/brag. Install it on YOUR OWN VM now, so you are ready when I give you a project. Download everything yourself from GitHub on your machine.
 codex plugin marketplace add latent-spaces/brag
