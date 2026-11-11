@@ -68,6 +68,16 @@
 #   glyph OR a bare hit-count without checking WHICH byte form they belong
 #   to. Other NGA+ASAT words (yin, pyin, hsint) are genuinely spelled
 #   that way — only "thone" was wrong.
+#   2026-11-11 ROUND 4 (user: "Phase 2 makes no sense, looks the same as
+#   Phase 1"). Root cause: the bullets blurred the test/real line — S3
+#   p1a said Muse "reads the PROJECT" (that is Phase 2's job!) and S4
+#   p2b said Muse "shows the video first" (same as S3 p1b "shows the
+#   test video"). Fix: Phase 1 is ONLY test — i3 "Test video ne a-yin
+#   pyin-tay" (gets ready WITH a test video), p1a "Muse ka /brag ko
+#   a-yin san-that-tay" (tests /brag first; san-that 13x OK). Phase 2 is
+#   the REAL video — q3/p2b/m2 use "ta-kay Video" (ta-kay 1x OK, also in
+#   w2). S2 q3 + S5 m2 match, so the test-vs-real contrast is the same
+#   everywhere.
 #   (B) WRONG VOICE: round-2 bullets used imperatives (-par) for actions
 #   the MUSE does ("Test video ko pya-par" told the READER to show the
 #   video). Rewritten in Muse-voice: "Muse ka ... -tay" (Muse does it);
@@ -124,7 +134,7 @@ MM = {
     # section intros (one short sentence each)
     "i1": "/brag \u1000 Project \u1000\u102d\u102f \u1017\u102e\u1012\u102e\u101a\u102d\u102f \u1015\u103c\u1031\u102c\u1004\u103a\u1015\u1031\u1038\u1010\u101a\u103a\u104b",  # /brag ka Project ko video pyaw-pay-tay
     "i2": "\u1021\u1006\u1004\u1037\u103a \u1043 \u1006\u1004\u1037\u103a \u101b\u103e\u102d\u1010\u101a\u103a\u104b",  # a-hsint 3 hsint hshi-tay
-    "i3": "Muse \u1000 \u1021\u101b\u1004\u103a \u1015\u103c\u1004\u103a\u1010\u101a\u103a\u104b",  # Muse ka a-yin pyin-tay
+    "i3": "Muse \u1000 Test video \u1014\u1032\u1037 \u1021\u101b\u1004\u103a \u1015\u103c\u1004\u103a\u1010\u101a\u103a\u104b",  # Muse ka Test video ne a-yin pyin-tay
     "i4": "App \u1014\u102c\u1019\u100a\u103a \u1014\u1032\u1037 repo link \u1015\u1031\u1038\u1015\u102b\u104b",  # App na-myi ne repo link pay-par
     "i5": "Copy All \u1010\u1005\u103a\u1001\u103b\u1000\u103a \u1014\u103e\u102d\u1015\u103a \u1021\u1000\u102f\u1014\u103a \u1000\u1030\u1038\u101c\u102d\u102f\u1037\u101b\u1010\u101a\u103a\u104b",  # Copy All tit-chat nheit a-kun ku-lo-ya-tay
     "i6": "\u1015\u103b\u1000\u103a\u101b\u1004\u103a \u1012\u102e\u1019\u103e\u102c \u101b\u103e\u102c\u1015\u102b\u104b",  # pyet-yin di-hma sha-par
@@ -138,18 +148,18 @@ MM = {
     # quick-start bullets
     "q1": "Muse \u1000 /brag \u1000\u102d\u102f Install \u101c\u102f\u1015\u103a\u1015\u1031\u1038\u1010\u101a\u103a\u104b",  # Muse ka /brag ko Install lote-pay-tay
     "q2": "Muse \u1000 Test video \u101c\u102f\u1015\u103a\u1015\u1031\u1038\u1010\u101a\u103a\u104b",  # Muse ka Test video lote-pay-tay
-    "q3": "Muse \u1000 Video \u1000\u102d\u102f \u101c\u102f\u1015\u103a\u1015\u1031\u1038\u1010\u101a\u103a\u104b",  # Muse ka Video ko lote-pay-tay
+    "q3": "Muse \u1000 \u1010\u1000\u101a\u1037\u103a Video \u1000\u102d\u102f \u101c\u102f\u1015\u103a\u1015\u1031\u1038\u1010\u101a\u103a\u104b",  # Muse ka ta-kay Video ko lote-pay-tay
     # phase bullets
-    "p1a": "Muse \u1000 Project \u1000\u102d\u102f \u1021\u101b\u1004\u103a \u1016\u1010\u103a\u1010\u101a\u103a\u104b",  # Muse ka Project ko a-yin hpat-tay
+    "p1a": "Muse \u1000 /brag \u1000\u102d\u102f \u1021\u101b\u1004\u103a \u1005\u1019\u103a\u1038\u101e\u1015\u103a\u1010\u101a\u103a\u104b",  # Muse ka /brag ko a-yin san-that-tay
     "p1b": "Muse \u1000 Test video \u1000\u102d\u102f \u1015\u103c\u1010\u101a\u103a\u104b",  # Muse ka Test video ko pya-tay
     "p2a": "App \u1014\u102c\u1019\u100a\u103a \u1014\u1032\u1037 repo link \u1015\u1031\u1038\u1015\u102b\u104b",
-    "p2b": "Muse \u1000 Video \u1000\u102d\u102f \u1021\u101b\u1004\u103a \u1015\u103c\u1010\u101a\u103a\u104b",  # Muse ka Video ko a-yin pya-tay
+    "p2b": "Muse \u1000 \u1010\u1000\u101a\u1037\u103a Video \u1000\u102d\u102f \u101c\u102f\u1015\u103a\u1015\u1031\u1038\u1010\u101a\u103a\u104b",  # Muse ka ta-kay Video ko lote-pay-tay
     "p4a": "Muse \u1000 PocketLab \u1000\u102d\u102f Video \u101c\u102f\u1015\u103a\u1015\u1031\u1038\u1010\u101a\u103a\u104b",  # Muse ka PocketLab ko Video lote-pay-tal
     "p4b": "Muse \u1000 Guide \u1000\u102d\u102f Video \u101c\u102f\u1015\u103a\u1015\u1031\u1038\u1010\u101a\u103a\u104b",  # Muse ka Guide ko Video lote-pay-tal
     "p4c": "PocketLab \u1000\u102d\u102f App \u1014\u102c\u1019\u100a\u103a \u1015\u103c\u1031\u102c\u1004\u103a\u1015\u102b\u104b",  # PocketLab ko App na-myi pyaw-pa (replace PocketLab with your app name)
     "ex": "\u1025\u1015\u1019\u102c",  # upama (example, heading)
-    "m1": "Phase 1 \u1005\u102c \u2014 Muse \u1000 \u1021\u101b\u1004\u103a \u1015\u103c\u1004\u103a\u1010\u101a\u103a\u104b",  # Phase 1 sa - Muse ka a-yin pyin-tay
-    "m2": "Phase 2 \u1005\u102c \u2014 Muse \u1000 Video \u1000\u102d\u102f \u101c\u102f\u1015\u103a\u1015\u1031\u1038\u1010\u101a\u103a\u104b",  # Phase 2 sa - Muse ka Video ko lote-pay-tay
+    "m1": "Phase 1 \u1005\u102c \u2014 Muse \u1000 Test video \u1014\u1032\u1037 \u1021\u101b\u1004\u103a \u1015\u103c\u1004\u103a\u1010\u101a\u103a\u104b",  # Phase 1 sa - Muse ka Test video ne a-yin pyin-tay
+    "m2": "Phase 2 \u1005\u102c \u2014 Muse \u1000 \u1010\u1000\u101a\u1037\u103a Video \u1000\u102d\u102f \u101c\u102f\u1015\u103a\u1015\u1031\u1038\u1010\u101a\u103a\u104b",  # Phase 2 sa - Muse ka ta-kay Video ko lote-pay-tay
     "u1": "Claude Code \u1019\u103e\u102c /brag \u1000\u102d\u102f \u1019\u101c\u102f\u1015\u103a\u101b\u101e\u1031\u1038\u1018\u1030\u1038\u104b",  # Claude Code hma /brag ko ma-lote-ya-thay-bu
     "u2": "Codex \u1019\u103e\u102c sign in \u1019\u101c\u102f\u1015\u103a\u101b\u101e\u1031\u1038\u1018\u1030\u1038\u104b",  # Codex hma sign in ma-lote-ya-thay-bu
     "u3": "Windows \u1019\u103e\u102c /brag \u1000\u102d\u102f \u1019\u101c\u102f\u1015\u103a\u101b\u101e\u1031\u1038\u1018\u1030\u1038\u104b",  # Windows hma /brag ko ma-lote-ya-thay-bu
